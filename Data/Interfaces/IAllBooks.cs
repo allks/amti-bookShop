@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace amti_bookShop.Data.Interfaces {
     interface IAllBooks {
-        IEnumerable<Book> Books { get; set; }
+        IEnumerable<Book> Books { get; }
         IEnumerable<Book> getFavBooks { get; set; }
         Book getObjectBook(int bookId);
     }

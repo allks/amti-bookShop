@@ -19,7 +19,7 @@ namespace amti_bookShop.Data.Models {
 
         public bool isFavorite { set; get; }
 
-        public int available { set; get; }
+        public bool available { set; get; }
 
         public int categoryID { set; get; }
 
