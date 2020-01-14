@@ -21,14 +21,11 @@ namespace amti_bookShop
             if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseRouting();
-
-            app.UseEndpoints(endpoints => {
-                endpoints.MapGet("/", async context => {
-                    await context.Response.WriteAsync("Hello World!");
+            if(env.IsProduction()) {
+                app.Run(async (context) => {
+                    await context.Response.WriteAsync("Production");
                 });
-            });
+            }
         }
     }
 }
