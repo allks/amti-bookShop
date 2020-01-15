@@ -9,9 +9,9 @@ namespace amti_bookShop.Data.Models {
 
         public string name { set; get; }
 
-        public string shortDesc { set; get; }
+        public string author { set; get; }
 
-        public string longDesc { set; get; }
+        public string descr { set; get; }
 
         public string img { set; get; }
 
