@@ -16,6 +16,7 @@ namespace amti_bookShop {
 			services.AddTransient<IAllBooks, MockBooks>();
 			services.AddTransient<IBooksCategory, MockCategory>();
 			services.AddMvc();
+			services.AddMvc(options => options.EnableEndpointRouting = false);
 		}
 
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
