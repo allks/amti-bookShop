@@ -1,24 +1,9 @@
-﻿@using amti_bookShop.Data.Models
-@model IEnumerable<Book>
+﻿<h1>Все книги</h1>
+<h2>@Model.currCategory</h2>
 @{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>List</title>
-</head>
-<body>
-    <h2>Все книги</h2>
-    @{
-        foreach (var book in Model) {
-            <h3>Название: @book.name</h3>
-            <p>Цена: @book.price.ToString("c")</p>
-            <p>Автор: @book.author</p>
-        }
+    foreach (var book in Model.allBooks) {
+        <h3>Название: @book.name</h3>
+        <p>Цена: @book.price.ToString("c")</p>
+        <p>Автор: @book.author</p>
     }
-</body>
-</html>
+}
