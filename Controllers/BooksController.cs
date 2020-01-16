@@ -1,4 +1,5 @@
 ﻿using amti_bookShop.Data.Interfaces;
+using amti_bookShop.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -16,8 +17,10 @@ namespace amti_bookShop.Controllers {
 		}
 
 		public ViewResult List() {
-			var books = _allBooks.Books;
-			return View(books);
+			BooksListViewModel obj = new BooksListViewModel();
+			obj.allBooks = _allBooks.Books;
+			obj.currCategory = "Книги";
+			return View(obj);
 		}
 	}
 }
