@@ -10,20 +10,19 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace amti_bookShop
-{
-    public class Startup {
-        public void ConfigureServices(IServiceCollection services) {
-            services.AddTransient<IAllBooks, MockBooks>();
-            services.AddTransient<IBooksCategory, MockCategory>();
-            services.AddMvc();
-        }
+namespace amti_bookShop {
+	public class Startup {
+		public void ConfigureServices(IServiceCollection services) {
+			services.AddTransient<IAllBooks, MockBooks>();
+			services.AddTransient<IBooksCategory, MockCategory>();
+			services.AddMvc();
+		}
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
-            app.UseDeveloperExceptionPage();
-            app.UseStatusCodePages();
-            app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
-        }
-    }
+		public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
+			app.UseDeveloperExceptionPage();
+			app.UseStatusCodePages();
+			app.UseStaticFiles();
+			app.UseMvcWithDefaultRoute();
+		}
+	}
 }

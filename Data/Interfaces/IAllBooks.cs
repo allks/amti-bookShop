@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace amti_bookShop.Data.Interfaces {
-    public interface IAllBooks {
-        IEnumerable<Book> Books { get; }
-        IEnumerable<Book> getFavBooks { get; set; }
-        Book getObjectBook(int bookId);
-    }
+	public interface IAllBooks {
+		IEnumerable<Book> Books { get; }
+		IEnumerable<Book> getFavBooks { get; set; }
+		Book getObjectBook(int bookId);
+	}
 }

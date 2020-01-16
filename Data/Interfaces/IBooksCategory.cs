@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace amti_bookShop.Data.Interfaces {
-    public interface IBooksCategory {
-        IEnumerable<Category> AllCategories { get; }
-    }
+	public interface IBooksCategory {
+		IEnumerable<Category> AllCategories { get; }
+	}
 }
