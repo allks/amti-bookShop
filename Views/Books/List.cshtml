@@ -1,9 +1,17 @@
 ﻿<h1>Все книги</h1>
-<h2>@Model.currCategory</h2>
-@{
-    foreach (var book in Model.allBooks) {
-        <h3>Название: @book.name</h3>
-        <p>Цена: @book.price.ToString("c")</p>
-        <p>Автор: @book.author</p>
+<h3>@Model.currCategory</h3>
+<div class="row mt-5 mb-2">
+    @{
+        foreach (var book in Model.allBooks) {
+        <div class="col-lg-4">
+            <img class="img-thumbnail" src="@book.img" alt="@book.name" />
+            <h2>@book.name</h2>
+            <p>@book.author</p>
+            <p>@book.descr</p>
+            <p>Цена: @book.price.ToString("c")</p>
+            <p><a class="btn btn-warning" href="#">Подробнее</a></p>
+        </div>
+        }
     }
-}
+</div>
+
