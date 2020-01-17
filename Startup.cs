@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
+using amti_bookShop.Data.Repository;
 
 namespace amti_bookShop {
 	public class Startup {
@@ -24,8 +25,8 @@ namespace amti_bookShop {
 		}
 		public void ConfigureServices(IServiceCollection services) {
 			services.AddDbContext<AppDBContent>(options => options.UseSqlServer(_confSting.GetConnectionString("DefaultConnection")));
-			services.AddTransient<IAllBooks, MockBooks>();
-			services.AddTransient<IBooksCategory, MockCategory>();
+			services.AddTransient<IAllBooks, BookRepository>();
+			services.AddTransient<IBooksCategory, CategoryRepository>();
 			services.AddMvc();
 			services.AddMvc(options => options.EnableEndpointRouting = false);
 		}
