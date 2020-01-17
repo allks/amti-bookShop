@@ -7,9 +7,9 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace amti_bookShop.Data.Repository {
-  public class BookRepository : IAllBooks {
+  public class IAllCars : IAllBooks {
     private readonly AppDBContent appDBContent;
-    public BookRepository(AppDBContent appDBContent) {
+    public IAllCars(AppDBContent appDBContent) {
       this.appDBContent = appDBContent;
     }
     public IEnumerable<Book> Books => appDBContent.Book.Include(c => c.Category);

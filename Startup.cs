@@ -14,6 +14,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 using amti_bookShop.Data.Repository;
+using amti_bookShop.Data.Models;
 
 namespace amti_bookShop {
 	public class Startup {
@@ -25,16 +26,21 @@ namespace amti_bookShop {
 		}
 		public void ConfigureServices(IServiceCollection services) {
 			services.AddDbContext<AppDBContent>(options => options.UseSqlServer(_confSting.GetConnectionString("DefaultConnection")));
-			services.AddTransient<IAllBooks, BookRepository>();
+			services.AddTransient<IAllBooks, IAllCars>();
 			services.AddTransient<IBooksCategory, CategoryRepository>();
+			services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+			services.AddScoped(sp => ShopCart.GetCart(sp));
 			services.AddMvc();
 			services.AddMvc(options => options.EnableEndpointRouting = false);
+			services.AddMemoryCache();
+			services.AddSession();
 		}
 
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
 			app.UseDeveloperExceptionPage();
 			app.UseStatusCodePages();
 			app.UseStaticFiles();
+			app.UseSession();
 			app.UseMvcWithDefaultRoute();
 			using (var scope = app.ApplicationServices.CreateScope()) {
 				AppDBContent content = scope.ServiceProvider.GetRequiredService<AppDBContent>();

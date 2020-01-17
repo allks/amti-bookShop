@@ -21,7 +21,7 @@ namespace amti_bookShop.Data.Models {
       session.SetString("CartId", shopCartId);
       return new ShopCart(context) { ShopCartId = shopCartId };
     }
-    public void AddToCart(Book book, int amout) {
+    public void AddToCart(Book book) {
       appDBContent.ShopCartItem.Add(new ShopCartItem {
         ShopCartId = ShopCartId,
         book = book,
