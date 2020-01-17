@@ -12,5 +12,6 @@ namespace amti_bookShop.Data {
     }
     public DbSet<Book> Book { get; set; }
     public DbSet<Category> Category { get; set; }
+    public DbSet<ShopCartItem> ShopCartItem { get; set; }
   }
 }
